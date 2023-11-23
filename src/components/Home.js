@@ -50,8 +50,8 @@ function Home() {
         <div>
         <div className="form-wrapper-2"> {/* This is a new wrapper div for centering the form */}
             <div className="booking-form-container">
-            <h2>Welcome to Romil Airlines!</h2>
-            <p>Now accepting payment in ROMILCOIN.</p>         
+            <h2>Welcome to 614 Airlines!</h2>
+            <p>Please fill in flight details below.</p>         
 
             <form onSubmit={handleSubmit}> 
                 <label htmlFor="trip-type">Trip type</label>
