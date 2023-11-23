@@ -69,7 +69,7 @@ function Home() {
                 <label htmlFor="departure-date">Departure date</label>
                 <input type="date" id="departure-date" name="departureDate" onChange={handleInputChange} value={formData.departureDate}/>
 
-                <label htmlFor="guests">Guests</label>
+                {/* <label htmlFor="guests">Guests</label>
                 <select id="guests" name="guests" onChange={handleInputChange} value={formData.guests}>
 
                     <option value="1">1 Guest</option>
@@ -77,7 +77,7 @@ function Home() {
                     <option value="3">3 Guests</option>
                     <option value="4">4 Guests</option>
 
-                </select>
+                </select> */}
 
                 <button type="submit">Get Flights</button>
             </form>

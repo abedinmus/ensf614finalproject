@@ -10,6 +10,7 @@ import SeatSelect from './components/SeatSelect';
 import Payment from './components/Payment'; 
 import Login from './components/Login'; 
 import AboutUs from './components/AboutUs'; 
+import BrowsePassengerList from './components/BrowsePassengerList'; 
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/payment" element={<Payment />} />
           <Route path="/login" element={<Login />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/browse-passenger-list" element={<BrowsePassengerList />} />
           {/* Add more routes as necessary */}
         </Routes>
       </div>

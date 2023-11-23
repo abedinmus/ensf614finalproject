@@ -33,7 +33,13 @@ return (
         <div className="form-wrapper-2">
             <div className="booking-form-container">
             <h2>Become a member today!</h2>
-            <p style={{ textAlign: 'left' }}>Perks include:</p>       
+            <p style={{ textAlign: 'left' }}><b>Perks include:</b><br/ >
+            <br />
+            • Eligibility to apply for the company’s credit card<br />
+            • Monthly promotion news<br />  
+            • Discount prices at airport lounges<br />
+            • One free companion ticket once a year</p>      
+
 
             <form onSubmit={handleSubmit}> 
                 <label htmlFor="firstName">First Name</label>
