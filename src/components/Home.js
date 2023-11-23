@@ -40,14 +40,6 @@ function Home() {
         navigate('/flights', { state: formData });
     };
 
-    const headerStyle = {
-        backgroundImage: `url(${background})`,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center 10%',
-        height: '100vh', // Full height of the viewport
-        color: 'white', // Assuming you want white text for better contrast
-    };
 
     //EXPRESS JS TEST STUFF: UNCOMMENT FOR TESTING PROXY
     // if (isLoading) return <div>Loading...</div>;
@@ -56,10 +48,7 @@ function Home() {
 
     return (
         <div>
-        <header className="App-header" style={headerStyle}>
-            {/* Header content might go here */}
-        </header>
-        <div className="form-wrapper"> {/* This is a new wrapper div for centering the form */}
+        <div className="form-wrapper-2"> {/* This is a new wrapper div for centering the form */}
             <div className="booking-form-container">
             <h2>Welcome to Romil Airlines!</h2>
             <p>Now accepting payment in ROMILCOIN.</p>         
@@ -99,10 +88,6 @@ function Home() {
         </div>
         </div>
     );
-
-
-
-
 
 
 }

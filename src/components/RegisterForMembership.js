@@ -1,8 +1,11 @@
 // RegisterForMembership.js
-import React, {useState} from 'react';
-import romilnice from '../images/romil.jpg'; 
+import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useState } from 'react'; // Import useState
 
 function RegisterForMembership() {
+    const navigate = useNavigate();
+
     const [registrationData, setRegistrationData] = useState({
         firstName: '',
         lastName: '',
@@ -24,73 +27,58 @@ function RegisterForMembership() {
         console.log(registrationData); // For now, just log the data to the console
     };    
 
-    return (
+return (
     <div>
-      <h1 style={{ textAlign: 'left' }}>Become a member today!</h1>
-      <p style={{ textAlign: 'left' }}>Perks include:</p>
-      <p style={{ textAlign: 'left' }}>
-        • Eligibility to apply for the company’s credit card<br />
-        • Monthly promotion news<br />  
-        • Discount prices at airport lounges<br />
-        • One free companion ticket once a year
-      </p>
 
+        <div className="form-wrapper-2">
+            <div className="booking-form-container">
+            <h2>Become a member today!</h2>
+            <p style={{ textAlign: 'left' }}>Perks include:</p>       
 
-        <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="firstName">First Name</label>
-          <input
-            type="text"
-            id="firstName"
-            name="firstName"
-            value={registrationData.firstName}
-            onChange={handleInputChange}
-          />
+            <form onSubmit={handleSubmit}> 
+                <label htmlFor="firstName">First Name</label>
+                <input 
+                    type="text" 
+                    id="firstName" 
+                    name="firstName" 
+                    onChange={handleInputChange} 
+                    value={registrationData.firstName} 
+                />
+
+                <label htmlFor="lastName">Last Name</label>
+                <input 
+                    type="text" 
+                    id="lastName" 
+                    name="lastName" 
+                    onChange={handleInputChange} 
+                    value={registrationData.lastName} 
+                />
+
+                <label htmlFor="email">Email Address</label>
+                <input 
+                    type="email"  // Changed to type="email" for proper validation
+                    id="email" 
+                    name="email" 
+                    onChange={handleInputChange} 
+                    value={registrationData.email}
+                />
+
+                <label htmlFor="password">Password</label>
+                <input 
+                    type="password"  // Added type="password" here
+                    id="password" 
+                    name="password" 
+                    onChange={handleInputChange} 
+                    value={registrationData.password}
+                />
+
+                <button type="submit">Apply for Membership</button>
+            </form>
+            </div>
         </div>
-
-        <div>
-          <label htmlFor="lastName">Last Name</label>
-          <input
-            type="text"
-            id="lastName"
-            name="lastName"
-            value={registrationData.lastName}
-            onChange={handleInputChange}
-          />
-        </div>
-
-        <div>
-          <label htmlFor="email">Email Address</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={registrationData.email}
-            onChange={handleInputChange}
-          />
-        </div>
-
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={registrationData.password}
-            onChange={handleInputChange}
-          />
-        </div>
-
-        <button type="submit">Apply for Membership</button>
-      </form>
-
-      {/* <img src={romilnice} alt="romil" style={{ width: '400px' }} />; */}
-
-
-
-
     </div>
-  );
+);
+
 }
 
 export default RegisterForMembership;
