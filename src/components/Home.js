@@ -7,15 +7,15 @@ import { useQuery } from 'react-query';
 
 function Home() {
 
-    const fetchMyData = async () => {
-        const response = await fetch('http://localhost:3010/my-endpoint');
-        if (!response.ok) {
-          throw new Error('Network response was NOT ok');
-        }
-        return response.json();
-      };
-    
-    const {data, error, isLoading } = useQuery('home-page', fetchMyData);
+    //EXPRESS JS TEST STUFF: UNCOMMENT FOR TESTING PROXY
+    // const fetchMyData = async () => {
+    //     const response = await fetch('http://localhost:3010/my-endpoint');
+    //     if (!response.ok) {
+    //       throw new Error('Network response was NOT ok');
+    //     }
+    //     return response.json();
+    //   };
+    // const {data, error, isLoading } = useQuery('home-page', fetchMyData);
 
     const navigate = useNavigate();
     // Use only formData state to manage all form fields
@@ -49,9 +49,10 @@ function Home() {
         color: 'white', // Assuming you want white text for better contrast
     };
 
-    if (isLoading) return <div>Loading...</div>;
-    if (error) return <div>An error has occurred: {error.message}</div>;
-    console.log(data)
+    //EXPRESS JS TEST STUFF: UNCOMMENT FOR TESTING PROXY
+    // if (isLoading) return <div>Loading...</div>;
+    // if (error) return <div>An error has occurred: {error.message}</div>;
+    // console.log(data)
 
     return (
         <div>

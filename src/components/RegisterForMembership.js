@@ -26,14 +26,14 @@ function RegisterForMembership() {
 
     return (
     <div>
-        <h1>Become a member today!</h1>
-        <p>Perks include:</p>
-        <p>
+      <h1 style={{ textAlign: 'left' }}>Become a member today!</h1>
+      <p style={{ textAlign: 'left' }}>Perks include:</p>
+      <p style={{ textAlign: 'left' }}>
         • Eligibility to apply for the company’s credit card<br />
         • Monthly promotion news<br />  
         • Discount prices at airport lounges<br />
         • One free companion ticket once a year
-        </p>
+      </p>
 
 
         <form onSubmit={handleSubmit}>
@@ -84,7 +84,7 @@ function RegisterForMembership() {
         <button type="submit">Apply for Membership</button>
       </form>
 
-      <img src={romilnice} alt="romil" style={{ width: '400px' }} />;
+      {/* <img src={romilnice} alt="romil" style={{ width: '400px' }} />; */}
 
 
 
