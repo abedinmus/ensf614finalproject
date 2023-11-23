@@ -1,5 +1,4 @@
 import React from 'react';
-import background from '../images/wallpaper2.jpeg';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { useState } from 'react'; // Import useState
 import { useQuery } from 'react-query';

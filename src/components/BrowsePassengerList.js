@@ -1,19 +1,21 @@
 // BrowsePassengerList.js
 
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 
 function BrowsePassengerList() {
-    const navigate = useNavigate();
+
     const [flightNumber, setFlightNumber] = useState(''); // State to store the flight number
+    const [showFlightNumber, setShowFlightNumber] = useState(false); // State to control display of the flight number
 
     const handleBrowsePassengerClick = () => {
-      navigate('/pass');
-      // Can also use flightNumber here to do something (like fetching data)
+
+      setShowFlightNumber(true); // Set to true to display the flight number
     };
 
     const handleInputChange = (event) => {
       setFlightNumber(event.target.value); // Update the state when the input changes
+      setShowFlightNumber(false); // Reset display state when input changes
     };
 
     return (
@@ -28,8 +30,10 @@ function BrowsePassengerList() {
         />
         <button onClick={handleBrowsePassengerClick}>Search</button>
         
-        {/* Display the entered flight number */}
-        <p>Entered Flight Number: {flightNumber}</p>
+        {/* Conditionally display the entered flight number */}
+        {showFlightNumber && <p>{flightNumber}</p>}
+        {/* OK. so we want to send 'flightnumber' to the database do an SQL query and
+        select all passengers where FlightID = 'flightnumber' and generate a table*/}
       </div>
     );
 }
