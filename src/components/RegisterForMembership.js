@@ -1,10 +1,10 @@
 // RegisterForMembership.js
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+// import { useNavigate } from 'react-router-dom'; 
 import { useState } from 'react'; // Import useState
 
 function RegisterForMembership() {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const [registrationData, setRegistrationData] = useState({
         firstName: '',

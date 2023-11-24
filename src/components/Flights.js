@@ -46,9 +46,9 @@ function Flights() {
 
     return (
       <div>
-        <h1>Flights Page</h1>
+        <h1>Flights</h1>
         <p>Showing flights from {from || 'your departure city '} to {to || 'your destination '} 
-        on {departureDate || 'selected date'} for {guests || 'number of'} guests.</p>
+         {' on the week of '}{departureDate || 'selected date'} for {guests || 'number of'} guests.</p>
 
         <div className="week-container">
           {weekDates.map((date) => (

@@ -1,91 +1,125 @@
-// Payment.js
-
 import React, { useState } from 'react';
-import '../styles/Payment.css';
-
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row'; // Import Row
+import Col from 'react-bootstrap/Col'; // Import Col
 function Payment() {
-  const [paymentData, setPaymentData] = useState({
+  const [paymentDetails, setPaymentDetails] = useState({
     cardNumber: '',
-    cardHolder: '',
+    cardholderName: '',
     expiryMonth: '',
     expiryYear: '',
-    cvv: ''
+    cvv: '',
   });
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setPaymentData(prevData => ({
-      ...prevData,
-      [name]: value
-    }));
+    setPaymentDetails({ ...paymentDetails, [name]: value });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle the form submission. IMPORTANT: Don't send raw card details like this in a real app!
-    console.log(paymentData);
+    // Process payment details
+    console.log(paymentDetails);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-    
-    <h1>Payment</h1>
-    <p>Please enter payment information below:</p>
-      
     <div>
+      <h2>Payment Details</h2>
+      <div className='d-flex justify-content-center align-items-center'>
+        <div className='p-3 bg-white w-25'>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3">
+              <Form.Label>Card Number</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Card Number"
+                name="cardNumber"
+                value={paymentDetails.cardNumber}
+                onChange={handleInputChange}
+                required
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label>Cardholder Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Cardholder Name"
+                name="cardholderName"
+                value={paymentDetails.cardholderName}
+                onChange={handleInputChange}
+                required
+              />
+            </Form.Group>
 
 
-        <label htmlFor="cardNumber">Card Number</label>
-        <input
-          type="text"
-          id="cardNumber"
-          name="cardNumber"
-          value={paymentData.cardNumber}
-          onChange={handleInputChange}
-        />
-    </div>
+            <Row>
+              {/* Expiry Month */}
+              <Form.Group as={Col} xs={6} controlId="formExpiryMonth">
+                <Form.Label>Expiry Month</Form.Label>
+                <Form.Select
+                  name="expiryMonth"
+                  value={paymentDetails.expiryMonth}
+                  onChange={handleInputChange}
+                  required
+                >
+                  <option value="">Month</option>
+                  {/* Month options */}
+                  {[...Array(12).keys()].map((month) => (
+                    <option key={month + 1} value={month + 1}>
+                      {month + 1}
+                    </option>
+                  ))}
+                </Form.Select>
+              </Form.Group>
 
-    <div>
-        <label htmlFor="cardHolder">Cardholder Name</label>
-        <input
-          type="text"
-          id="cardHolder"
-          name="cardHolder"
-          value={paymentData.cardHolder}
-          onChange={handleInputChange}
-        />
-    </div>
+              {/* Expiry Year */}
+              <Form.Group as={Col} md={3} controlId="formExpiryYear">
+                <Form.Label>Expiry Year</Form.Label>
+                <Form.Select
+                  name="expiryYear"
+                  value={paymentDetails.expiryYear}
+                  onChange={handleInputChange}
+                  required
+                >
+                  <option value="">Year</option>
+                  {/* Year options */}
+                  {Array.from({ length: 10 }, (_, i) => new Date().getFullYear() + i).map((year) => (
+                    <option key={year} value={year}>
+                      {year}
+                    </option>
+                  ))}
+                </Form.Select>
+              </Form.Group>
+            </Row>
 
-    <div className="expiry-container">
-        <div className="expiry-field">
-            <label htmlFor="expiryMonth">Expiry Month</label>
-            <select id="expiryMonth" name="expiryMonth" value={paymentData.expiryMonth} onChange={handleInputChange}>
-                {/* Add options for months */}
-            </select>
+
+
+
+
+
+
+
+            <Form.Group className="mb-3">
+              <Form.Label>CVV</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter CVV"
+                name="cvv"
+                value={paymentDetails.cvv}
+                onChange={handleInputChange}
+                required
+              />
+            </Form.Group>
+
+            <Button variant="success" type="submit">
+              Submit Payment
+            </Button>
+          </Form>
         </div>
-
-    <div className="expiry-field">
-        <label htmlFor="expiryYear">Expiry Year</label>
-        <select id="expiryYear" name="expiryYear" value={paymentData.expiryYear} onChange={handleInputChange}>
-            {/* Add options for years */}
-        </select>
+      </div>
     </div>
-</div>
-
-
-    <div>
-        <label htmlFor="cvv">CVV</label>
-        <input
-          type="text"
-          id="cvv"
-          name="cvv"
-          value={paymentData.cvv}
-          onChange={handleInputChange}
-        />
-    </div>
-
-    <button type="submit">Submit Payment</button>
-    </form>
   );
 }
 
