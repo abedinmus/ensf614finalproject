@@ -18,6 +18,12 @@
 
 } */
 
+.flight-search-button:disabled {
+  background-color: gray;
+  color: #666;
+  cursor: not-allowed;
+}
+
 
 .form-wrapper {
   margin-top: -90vh; 

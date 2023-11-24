@@ -2,6 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { useState } from 'react'; // Import useState
 import { useQuery } from 'react-query';
+import '../App.css';
+
 
 
 function Home() {
@@ -39,11 +41,13 @@ function Home() {
         navigate('/flights', { state: formData });
     };
 
-
     //EXPRESS JS TEST STUFF: UNCOMMENT FOR TESTING PROXY
     // if (isLoading) return <div>Loading...</div>;
     // if (error) return <div>An error has occurred: {error.message}</div>;
     // console.log(data)
+
+    const locationOptions = ["Calgary", "Toronto", "Vancouver", 
+    "Montreal", "Edmonton", "Ottawa", "Winnipeg", "Halifax"];
 
     return (
         <div>
@@ -60,29 +64,35 @@ function Home() {
                 </select>
 
                 <label htmlFor="from">From</label>
-                <input type="text" id="from" name="from" placeholder="Calgary, AB" onChange={handleInputChange} value={formData.from} />
+                <select id="from" name="from" onChange={handleInputChange} value={formData.from}>
+                    <option value="" disabled>Select departure city</option>
+                    {locationOptions.map((option, index) => (
+                        <option key={index} value={option}>
+                            {option}
+                         </option>
+                    ))}
+                </select>
 
                 <label htmlFor="to">Going to</label>
-                <input type="text" id="to" name="to" placeholder="Toronto, ON" onChange={handleInputChange} value={formData.to} />
+                <select id="to" name="to" onChange={handleInputChange} value={formData.to}>
+                    <option value="" disabled>Select arrival city</option>
+                    {locationOptions.map((option, index) => (
+                        <option key={index} value={option}>
+                            {option}
+                         </option>
+                    ))}
+                </select>
 
                 <label htmlFor="departure-date">Departure date</label>
                 <input type="date" id="departure-date" name="departureDate" onChange={handleInputChange} value={formData.departureDate}/>
 
-                {/* <label htmlFor="guests">Guests</label>
-                <select id="guests" name="guests" onChange={handleInputChange} value={formData.guests}>
+                <button className="flight-search-button" // Add a specific class name
+                type="submit"
+                disabled={!formData.from || !formData.to || !formData.departureDate}>
+                Get Flights
+                </button>
 
-                    <option value="1">1 Guest</option>
-                    <option value="2">2 Guests</option>
-                    <option value="3">3 Guests</option>
-                    <option value="4">4 Guests</option>
-
-                </select> */}
-
-                <button type="submit">Get Flights</button>
             </form>
-
-
-
             </div>
         </div>
         </div>
