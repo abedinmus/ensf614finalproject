@@ -10,8 +10,9 @@ import RegisterForMembership from './components/RegisterForMembership';
 import SeatSelect from './components/SeatSelect'; 
 import Payment from './components/Payment'; 
 import Login from './components/Login'; 
-import AboutUs from './components/AboutUs'; 
 import BrowsePassengerList from './components/BrowsePassengerList'; 
+import CancelFlight from './components/CancelFlight'; 
+import SystemAdminView from './components/SystemAdminView'; 
 
 
 function App() {
@@ -26,9 +27,10 @@ function App() {
           <Route path="/seat-select" element={<SeatSelect />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/about-us" element={<AboutUs />} />
           <Route path="/browse-passenger-list" element={<BrowsePassengerList />} />
-          {/* Add more routes as necessary */}
+          <Route path="/cancel-flight" element={<CancelFlight />} />
+          <Route path="/system-admin-view" element={<SystemAdminView />} />
+          
         </Routes>
       </div>
     </Router>

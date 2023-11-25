@@ -28,6 +28,7 @@ function Payment() {
       <h2>Payment Details</h2>
       <div className='d-flex justify-content-center align-items-center'>
         <div className='p-3 bg-white w-25'>
+          <p>Total: <b>$INSERT PRICE FROM BACKEND HERE</b></p>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3">
               <Form.Label>Card Number</Form.Label>
@@ -56,7 +57,7 @@ function Payment() {
 
             <Row>
               {/* Expiry Month */}
-              <Form.Group as={Col} xs={6} controlId="formExpiryMonth">
+              <Form.Group as={Col} xs={5} controlId="formExpiryMonth">
                 <Form.Label>Expiry Month</Form.Label>
                 <Form.Select
                   name="expiryMonth"
@@ -75,7 +76,7 @@ function Payment() {
               </Form.Group>
 
               {/* Expiry Year */}
-              <Form.Group as={Col} md={3} controlId="formExpiryYear">
+              <Form.Group as={Col} md={5} controlId="formExpiryYear">
                 <Form.Label>Expiry Year</Form.Label>
                 <Form.Select
                   name="expiryYear"
@@ -95,13 +96,8 @@ function Payment() {
             </Row>
 
 
-
-
-
-
-
-
             <Form.Group className="mb-3">
+              <p></p>
               <Form.Label>CVV</Form.Label>
               <Form.Control
                 type="text"

@@ -88,7 +88,7 @@ function Home() {
 
                 <button className="flight-search-button" // Add a specific class name
                 type="submit"
-                disabled={!formData.from || !formData.to || !formData.departureDate}>
+                disabled={!formData.from || !formData.to || !formData.departureDate || formData.from === formData.to}>
                 Get Flights
                 </button>
 
